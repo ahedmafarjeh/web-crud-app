@@ -148,7 +148,7 @@ function showCourses(courses){
       <td>${course.price}</td>
       <td>${course.description}</td>
       <td>${course.capacity}</td>
-      <td><button onclick="editCourse(${index})" class="btn btn-danger">Update</button></td>
+      <td><button onclick="updateCourse(${index})" class="btn btn-danger">Update</button></td>
       <td><button onclick="deleteCourse(${index})" class="btn btn-danger">Delete</button></td>
     </tr>
     `;
@@ -214,7 +214,7 @@ function deleteCourse(index){
 
   })
 
-function editCourse(index){
+function updateCourse(index){
   let course = courses[index];
   name.value = course.name;
   category.value = course.category;
@@ -224,6 +224,9 @@ function editCourse(index){
   add_btn.setAttribute("value","Update Course");
   mode = "update";
   updateIndex = index;    
-
+  scroll({
+    top:0,
+    behavior:"smooth",
+});
 
 }
